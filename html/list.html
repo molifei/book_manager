@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="/static/plugins/bootstrap-3.3.7-dist/css/bootstrap.css">
+</head>
+<body>
+
+<a class="btn btn-default" href="/add">添加出版社</a>
+<a class="btn btn-default" href="/book">所有书籍</a>
+<a class="btn btn-default" href="/author">所有作者</a>
+
+<table class="table table-bordered">
+    <thead>
+    <tr>
+        <th>序号</th>
+        <th>id</th>
+        <th>出版社</th>
+        <th>操作</th>
+    </tr>
+    </thead>
+    <tbody>
+    {% for i in list %}
+        <tr>
+            <td>{{ forloop.counter }}</td>
+            <td>{{ i.id }}</td>
+            <td>{{ i.name }}</td>
+            <td>
+                <a class="btn btn-danger" href="/delete?id={{ i.id }}">删除</a>
+                <a class="btn btn-primary" href="/edit?id={{ i.id }}&name={{ i.name }}">编辑</a>
+                <a class="btn btn-default" href="/book?id={{ i.id }}">看书</a>
+            </td>
+        </tr>
+    {% endfor %}
+    </tbody>
+</table>
+
+</body>
+</html>

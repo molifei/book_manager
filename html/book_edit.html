@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="/static/plugins/bootstrap-3.3.7-dist/css/bootstrap.css">
+</head>
+<body>
+<h1>编辑{{ book_obj.name }}</h1>
+
+<h3>{{ error }}</h3>
+
+<form action="" method="post">
+    <label for="name">书籍名字：</label>
+    <input type="text" name="name" id="name" placeholder="名称" value="{{ book_obj.name }}">
+    <br>
+    <select class="form-control" name="publisher">
+        {% for i in publisher %}
+            {% if i.id == book_obj.publisher.id %}
+                <option selected value="{{ i.id }}">{{ i.name }}</option>
+            {% else %}
+                <option value="{{ i.id }}">{{ i.name }}</option>
+            {% endif %}
+        {% endfor %}
+    </select>
+    <br>
+    <input type="submit" value="确认">
+</form>
+</body>
+</html>
