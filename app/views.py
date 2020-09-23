@@ -4,6 +4,10 @@ from app import models
 
 
 # Create your views here.
+def index(req):
+    return render(req, "index.html")
+
+
 def list(req):
     # 获取所有的出版社信息
     publisher_res = models.Publisher.objects.all().order_by("id")
